@@ -216,10 +216,10 @@ namespace :rubber do
       end
 
       # If user doesn't setup a primary db, then be nice and do it
-      if ! roles.include?("db:primary=true") && rubber_instances.for_role("db").size == 0
-        value = Capistrano::CLI.ui.ask("You do not have a primary db role, should #{instance_alias} be it [y/n]?: ")
-        roles << "db:primary=true" if value =~ /^y/
-      end
+#      if ! roles.include?("db:primary=true") && rubber_instances.for_role("db").size == 0
+#        value = Capistrano::CLI.ui.ask("You do not have a primary db role, should #{instance_alias} be it [y/n]?: ")
+#        roles << "db:primary=true" if value =~ /^y/
+#      end
 
       ir.concat roles.collect {|r| Rubber::Configuration::RoleItem.parse(r) }
 
